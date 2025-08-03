@@ -22,16 +22,24 @@ a:visited {
   width: 400px;
 }
 
+.list-container {
+  margin-bottom: 50px;
+}
+
 .container {
   display: flex;
   justify-content: center;
 }
-.teams ul {
+
+.list-container ul {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.teams li {
+.list-container li {
   border: solid 1px black;
   border-radius: 5px;
   padding: 5px;
@@ -39,4 +47,25 @@ a:visited {
   justify-content: center;
   width: 300px;
   font-size: 1.2rem;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+button,
+input[type="text"],
+select {
+  font-size: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: first baseline;
+  gap: 10px;
+}
+
+button[type="submit"] {
+  align-self: last baseline;
 }
