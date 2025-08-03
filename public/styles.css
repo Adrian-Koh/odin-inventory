@@ -65,6 +65,11 @@ nav a:visited {
   border-radius: 5px;
 }
 
+.team {
+  width: 100%;
+  text-align: center;
+}
+
 label {
   font-size: 1.2rem;
   border-radius: 5px;
@@ -115,4 +120,8 @@ footer a,
 footer a:visited {
   color: rgb(143, 143, 0);
   text-decoration: none;
+}
+
+.edit {
+  margin-left: auto;
 }
