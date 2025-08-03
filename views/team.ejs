@@ -12,13 +12,15 @@
       <div class="content">
         <div class="list-container">
           <% if (locals.players && players.length > 0) { %>
-          <h1>Players of <%= team.teamname %>:</h1>
+          <h1>Players of <%= team.teamname %></h1>
           <% for (const player of players) { %>
           <ul>
             <li><%= player.name %>, <%= player.position %></li>
           </ul>
           <% } } else { %>
-          <p>There are no players for <%= team.teamname %>!</p>
+          <p class="nothing-msg">
+            There are no players for <%= team.teamname %>!
+          </p>
           <% } %>
         </div>
         <%- include('createPlayerForm', team); %>

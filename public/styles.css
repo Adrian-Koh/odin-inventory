@@ -1,3 +1,9 @@
+html {
+  background-image: url("./stadium.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 nav ul {
   list-style-type: none;
   display: flex;
@@ -7,15 +13,19 @@ nav ul {
   font-size: 1.5rem;
 }
 
-a,
-a:visited {
+nav a,
+nav a:visited {
   text-decoration: none;
   color: rgb(93, 148, 11);
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .team,
 .team:visited {
   color: black;
+  text-decoration: none;
 }
 
 .content {
@@ -40,13 +50,16 @@ a:visited {
 }
 
 .list-container li {
-  border: solid 1px black;
+  box-shadow: 2px 2px 2px 2px rgb(59, 69, 223);
+  background-color: white;
   border-radius: 5px;
   padding: 5px;
   display: flex;
   justify-content: center;
   width: 300px;
   font-size: 1.2rem;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 label {
@@ -68,4 +81,17 @@ form {
 
 button[type="submit"] {
   align-self: last baseline;
+}
+
+.nothing-msg {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-weight: 500;
+  text-align: center;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
