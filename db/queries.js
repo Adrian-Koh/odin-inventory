@@ -5,4 +5,8 @@ async function getAllTeams() {
   return rows;
 }
 
-module.exports = { getAllTeams };
+async function insertTeam(teamname) {
+  await pool.query(`INSERT INTO teams (teamname) VALUES ('${teamname}')`);
+}
+
+module.exports = { getAllTeams, insertTeam };

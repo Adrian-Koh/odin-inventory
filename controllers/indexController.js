@@ -2,11 +2,7 @@ const db = require("../db/queries");
 
 async function createHomepage(req, res) {
   const teams = await db.getAllTeams();
-  res.send(
-    teams
-      .map((team) => `Team: ${team.teamname}, ID: ${team.teamid}.`)
-      .join("\n")
-  );
+  res.render("index", { teams });
 }
 
 module.exports = { createHomepage };

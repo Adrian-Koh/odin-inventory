@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Add team</title>
+  </head>
+  <body>
+    <%- include('navBar'); %>
+    <form action="/team/new" method="POST">
+      <label for="teamname"
+        >Team name: <input type="text" name="teamname" id="teamname"
+      /></label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+}
+
+li {
+  padding: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: rgb(93, 148, 11);
+}
