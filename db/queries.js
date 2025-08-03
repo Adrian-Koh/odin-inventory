@@ -9,4 +9,11 @@ async function insertTeam(teamname) {
   await pool.query(`INSERT INTO teams (teamname) VALUES ('${teamname}')`);
 }
 
-module.exports = { getAllTeams, insertTeam };
+async function getPlayersFromTeamID(teamid) {
+  const { rows } = await pool.query(
+    `SELECT * FROM players WHERE teamid=${teamid}`
+  );
+  return rows;
+}
+
+module.exports = { getAllTeams, insertTeam, getPlayersFromTeamID };
