@@ -12,13 +12,16 @@ async function createTeam(req, res) {
 
 async function getPlayersFromTeam(req, res) {
   const { teamid } = req.params;
+  const teams = await db.getTeamFromID(teamid);
+  let team;
+  if (teams.length > 0) {
+    team = teams[0];
+  } else {
+    throw new Error(`No team found with teamid=${teamid}.`);
+  }
+
   const players = await db.getPlayersFromTeamID(teamid);
-  const result = players
-    .map(
-      (player) => `Player name: ${player.name}, position: ${player.position}.`
-    )
-    .join("\n");
-  res.send(result);
+  res.render("team", { team, players });
 }
 
 module.exports = { getCreateTeamForm, createTeam, getPlayersFromTeam };

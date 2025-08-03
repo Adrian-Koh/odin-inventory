@@ -13,3 +13,8 @@ a:visited {
   text-decoration: none;
   color: rgb(93, 148, 11);
 }
+
+.team,
+.team:visited {
+  color: black;
+}

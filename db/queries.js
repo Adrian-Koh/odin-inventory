@@ -5,6 +5,13 @@ async function getAllTeams() {
   return rows;
 }
 
+async function getTeamFromID(teamid) {
+  const { rows } = await pool.query(
+    `SELECT * FROM teams WHERE teamid=${teamid}`
+  );
+  return rows;
+}
+
 async function insertTeam(teamname) {
   await pool.query(`INSERT INTO teams (teamname) VALUES ('${teamname}')`);
 }
@@ -16,4 +23,9 @@ async function getPlayersFromTeamID(teamid) {
   return rows;
 }
 
-module.exports = { getAllTeams, insertTeam, getPlayersFromTeamID };
+module.exports = {
+  getAllTeams,
+  getTeamFromID,
+  insertTeam,
+  getPlayersFromTeamID,
+};
