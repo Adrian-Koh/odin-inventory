@@ -1,9 +1,5 @@
 const db = require("../db/queries");
 
-function getCreateTeamForm(req, res) {
-  res.render("createTeamForm");
-}
-
 async function createTeam(req, res) {
   const teamname = req.body.teamname;
   await db.insertTeam(teamname);
@@ -24,4 +20,4 @@ async function getPlayersFromTeam(req, res) {
   res.render("team", { team, players });
 }
 
-module.exports = { getCreateTeamForm, createTeam, getPlayersFromTeam };
+module.exports = { createTeam, getPlayersFromTeam };
