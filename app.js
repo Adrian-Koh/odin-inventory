@@ -12,5 +12,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 //app.use("/team", teamRouter);
 
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send(err.message);
+});
+
 const PORT = 8000;
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
