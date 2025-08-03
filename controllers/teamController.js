@@ -20,4 +20,12 @@ async function getPlayersFromTeam(req, res) {
   res.render("team", { team, players });
 }
 
-module.exports = { createTeam, getPlayersFromTeam };
+async function createPlayer(req, res) {
+  const { teamid } = req.params;
+  const { playername, position } = req.body;
+
+  await db.insertPlayer(teamid, playername, position);
+  res.redirect("/team/" + teamid);
+}
+
+module.exports = { createTeam, getPlayersFromTeam, createPlayer };

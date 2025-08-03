@@ -13,7 +13,7 @@ async function getTeamFromID(teamid) {
 }
 
 async function insertTeam(teamname) {
-  await pool.query(`INSERT INTO teams (teamname) VALUES ('${teamname}')`);
+  await pool.query("INSERT INTO teams (teamname) VALUES ($1)", [teamname]);
 }
 
 async function getPlayersFromTeamID(teamid) {
@@ -23,9 +23,17 @@ async function getPlayersFromTeamID(teamid) {
   return rows;
 }
 
+async function insertPlayer(teamid, playername, position) {
+  await pool.query(
+    "INSERT INTO players (name, teamid, position) VALUES ($1, $2, $3)",
+    [playername, teamid, position]
+  );
+}
+
 module.exports = {
   getAllTeams,
   getTeamFromID,
   insertTeam,
   getPlayersFromTeamID,
+  insertPlayer,
 };

@@ -7,12 +7,17 @@
     <title>Players of <%= team.teamname %></title>
   </head>
   <body>
-    <%- include('navBar'); %> <% if (locals.players) { %>
+    <%- include('navBar'); %> <% if (locals.players && players.length > 0) { %>
     <h1>Players of <%= team.teamname %>:</h1>
     <% for (const player of players) { %>
     <ul>
-      <li>ID: <%= player.playerid %>, player name: <%= player.name %></li>
-    </ul>
-    <% } %> <% } %>
+      <li>
+        Player name: <%= player.name %>, position:
+        <%= player.position %>
+      </li>
+    </ul
+    <% } } else { %>
+    <p>There are no players for <%= team.teamname %>!</p>
+    <% } %> <%- include('createPlayerForm', team); %>
   </body>
 </html>

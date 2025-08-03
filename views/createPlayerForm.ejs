@@ -1,0 +1,16 @@
+<h1>New player for <%= team.teamname %>:</h1>
+<form action="/team/<%= team.teamid %>/newPlayer" method="POST">
+  <label for="playername"
+    >Player name: <input type="text" name="playername" id="playername" required
+  /></label>
+  <label for="position"
+    >Position:
+    <select name="position" id="position" required>
+      <option value="Goalkeeper">Goalkeeper</option>
+      <option value="Defender">Defender</option>
+      <option value="Midfielder">Midfielder</option>
+      <option value="Forward">Forward</option>
+    </select>
+  </label>
+  <button type="submit">Submit</button>
+</form>

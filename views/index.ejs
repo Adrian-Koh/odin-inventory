@@ -7,16 +7,24 @@
     <title>Teams</title>
   </head>
   <body>
-    <%- include('navBar'); %> <% if (locals.teams) { %>
-    <h1>Teams:</h1>
-    <% for (const team of teams) { %>
-    <ul>
-      <li>
-        <a class="team" href="/team/<%= team.teamid %>"
-          >ID: <%= team.teamid %>, team name: <%= team.teamname %></a
-        >
-      </li>
-    </ul>
-    <% } %> <% } %> <%- include('createTeamForm'); %>
+    <%- include('navBar'); %>
+    <div class="container">
+      <div class="content">
+        <div class="teams">
+          <% if (locals.teams) { %>
+          <h1>Teams:</h1>
+          <% for (const team of teams) { %>
+          <ul>
+            <li>
+              <a class="team" href="/team/<%= team.teamid %>"
+                ><%= team.teamname %></a
+              >
+            </li>
+          </ul>
+          <% } %> <% } %>
+        </div>
+        <%- include('createTeamForm'); %>
+      </div>
+    </div>
   </body>
 </html>
