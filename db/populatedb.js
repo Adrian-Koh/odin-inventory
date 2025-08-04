@@ -31,7 +31,7 @@ VALUES
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@localhost:5432/top_users`,
+    connectionString: `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@trolley.proxy.rlwy.net:32194/railway`,
   });
   await client.connect();
   await client.query(SQL);
