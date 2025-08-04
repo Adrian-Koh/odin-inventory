@@ -27,7 +27,7 @@ async function getPlayersFromTeamID(teamid) {
   const { rows } = await pool.query(
     `SELECT * FROM players WHERE teamid=${teamid}`
   );
-  return rows;
+  return rows.sort((a, b) => a.playerid - b.playerid);
 }
 
 async function insertPlayer(teamid, playername, position) {
@@ -56,6 +56,10 @@ async function editPlayer(player) {
   );
 }
 
+async function deletePlayer(playerid) {
+  await pool.query("DELETE FROM players WHERE playerid=$1", [playerid]);
+}
+
 module.exports = {
   getAllTeams,
   getTeamFromID,
@@ -66,4 +70,5 @@ module.exports = {
   deleteTeam,
   getPlayerFromID,
   editPlayer,
+  deletePlayer,
 };

@@ -19,9 +19,9 @@ async function postEditPlayer(req, res) {
 }
 
 async function getDeletePlayer(req, res) {
-  //   const { teamid, playerid } = req.params;
-  //   await db.deletePlayer(playerid);
-  //   res.redirect("/team/" + teamid);
+  const { teamid, playerid } = req.params;
+  await db.deletePlayer(playerid);
+  res.redirect("/team/" + teamid);
 }
 
 module.exports = {
