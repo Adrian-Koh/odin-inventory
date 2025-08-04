@@ -59,7 +59,11 @@ async function postEditTeam(req, res) {
   res.redirect("/");
 }
 
-async function getDeleteTeam(req, res) {}
+async function getDeleteTeam(req, res) {
+  const { teamid } = req.params;
+  await db.deleteTeam(teamid);
+  res.redirect("/");
+}
 
 module.exports = {
   createTeam,

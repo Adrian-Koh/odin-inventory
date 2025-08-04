@@ -37,6 +37,11 @@ async function insertPlayer(teamid, playername, position) {
   );
 }
 
+async function deleteTeam(teamid) {
+  await pool.query("DELETE FROM teams WHERE teamid=$1", [teamid]);
+  // TODO: delete players with teamid
+}
+
 module.exports = {
   getAllTeams,
   getTeamFromID,
@@ -44,4 +49,5 @@ module.exports = {
   editTeam,
   getPlayersFromTeamID,
   insertPlayer,
+  deleteTeam,
 };
