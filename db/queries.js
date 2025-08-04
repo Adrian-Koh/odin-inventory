@@ -38,8 +38,8 @@ async function insertPlayer(teamid, playername, position) {
 }
 
 async function deleteTeam(teamid) {
+  await pool.query("DELETE FROM players WHERE players.teamid=$1", [teamid]);
   await pool.query("DELETE FROM teams WHERE teamid=$1", [teamid]);
-  // TODO: delete players with teamid
 }
 
 async function getPlayerFromID(playerid) {
