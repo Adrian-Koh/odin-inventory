@@ -33,16 +33,31 @@
           /></label>
           <label for="position"
             >Position:
-            <select
-              name="position"
-              id="position"
-              value="<%= locals.player ? player.position : '' %>"
-              required
-            >
-              <option value="Goalkeeper">Goalkeeper</option>
-              <option value="Defender">Defender</option>
-              <option value="Midfielder">Midfielder</option>
-              <option value="Forward">Forward</option>
+            <select name="position" id="position" required>
+              <option
+                value="Goalkeeper"
+                <%= (locals.player && player.position === 'Goalkeeper') ? 'selected' : '' %>
+              >
+                Goalkeeper
+              </option>
+              <option
+                value="Defender"
+                <%= (locals.player && player.position === 'Defender') ? 'selected' : '' %>
+              >
+                Defender
+              </option>
+              <option
+                value="Midfielder"
+                <%= (locals.player && player.position === 'Midfielder') ? 'selected' : '' %>
+              >
+                Midfielder
+              </option>
+              <option
+                value="Forward"
+                <%= (locals.player && player.position === 'Forward') ? 'selected' : '' %>
+              >
+                Forward
+              </option>
             </select>
           </label>
           <button type="submit">Submit</button>
