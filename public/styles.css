@@ -1,11 +1,13 @@
 :root {
   --half-transparent: rgba(255, 255, 255, 0.5);
+  --content-shadow: 2px 2px 2px 2px rgb(59, 69, 223);
 }
 
 html {
   background-image: url("./stadium.jpg");
   background-size: cover;
   background-position: center;
+  font-family: "Cactus Classical Serif", serif;
 }
 
 nav ul {
@@ -20,9 +22,9 @@ nav ul {
 nav a,
 nav a:visited {
   text-decoration: none;
-  color: rgb(13, 61, 150);
+  color: white;
   background-color: var(--half-transparent);
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -34,6 +36,9 @@ nav a:visited {
 
 .content {
   width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .list-container {
@@ -54,7 +59,7 @@ nav a:visited {
 }
 
 .list-container li {
-  box-shadow: 2px 2px 2px 2px rgb(59, 69, 223);
+  box-shadow: var(--content-shadow);
   background-color: white;
   border-radius: 5px;
   padding: 5px;
@@ -82,7 +87,7 @@ select {
   font-size: 1rem;
 }
 
-form {
+.create-form {
   display: flex;
   flex-direction: column;
   align-items: first baseline;
@@ -99,6 +104,10 @@ button[type="submit"] {
 .nothing-msg {
   text-align: center;
   font-size: 1.5rem;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: var(--content-shadow);
+  background-color: var(--half-transparent);
 }
 
 h1 {
@@ -124,4 +133,18 @@ footer a:visited {
 
 .edit {
   margin-left: auto;
+  margin-right: 5px;
+}
+
+a,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.add-team {
+  padding: 10px;
+  background-color: var(--half-transparent);
+  border-radius: 5px;
+  font-size: 1.5rem;
 }

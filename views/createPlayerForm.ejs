@@ -1,5 +1,9 @@
 <h1>Add player for <%= team.teamname %></h1>
-<form action="/team/<%= team.teamid %>/newPlayer" method="POST">
+<form
+  class="create-form"
+  action="/team/<%= team.teamid %>/newPlayer"
+  method="POST"
+>
   <label for="playername"
     >Player name: <input type="text" name="playername" id="playername" required
   /></label>
