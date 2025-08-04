@@ -70,7 +70,7 @@ a:visited {
   border-radius: 5px;
 }
 
-.team {
+.listitem {
   width: 100%;
   text-align: center;
 }
@@ -136,7 +136,7 @@ footer a:visited {
   margin-right: 5px;
 }
 
-.add-team {
+.add-btn {
   padding: 10px;
   background-color: var(--half-transparent);
   border-radius: 5px;

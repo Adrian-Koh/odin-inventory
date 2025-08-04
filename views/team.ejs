@@ -25,7 +25,20 @@
           <h1>Players of <%= team.teamname %></h1>
           <% for (const player of players) { %>
           <ul>
-            <li><%= player.name %>, <%= player.position %></li>
+            <li>
+              <span class="listitem"
+                ><%= player.name %>, <%= player.position %></span
+              ><a
+                class="edit"
+                href="/player/edit/<%= team.teamid %>/<%= player.playerid %>"
+                ><i class="fa-solid fa-pen-to-square"></i
+              ></a>
+              <a
+                class="delete"
+                href="/player/delete/<%= team.teamid %>/<%= player.playerid %>"
+                ><i class="fa-solid fa-trash"></i
+              ></a>
+            </li>
           </ul>
           <% } } else { %>
           <p class="nothing-msg">
@@ -33,7 +46,9 @@
           </p>
           <% } %>
         </div>
-        <%- include('createPlayerForm', team); %>
+        <a class="add-btn" href="/team/<%= team.teamid %>/newPlayer"
+          >Add player</a
+        >
       </div>
     </div>
   </body>

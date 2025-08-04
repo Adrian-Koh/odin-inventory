@@ -1,20 +1,53 @@
-<h1>Add player for <%= team.teamname %></h1>
-<form
-  class="create-form"
-  action="/team/<%= team.teamid %>/newPlayer"
-  method="POST"
->
-  <label for="playername"
-    >Player name: <input type="text" name="playername" id="playername" required
-  /></label>
-  <label for="position"
-    >Position:
-    <select name="position" id="position" required>
-      <option value="Goalkeeper">Goalkeeper</option>
-      <option value="Defender">Defender</option>
-      <option value="Midfielder">Midfielder</option>
-      <option value="Forward">Forward</option>
-    </select>
-  </label>
-  <button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('navBar'); %>
+    <div class="container">
+      <div class="content">
+        <h1><%= title %></h1>
+        <form class="create-form" action="<%= postLink %>" method="POST">
+          <label for="playername"
+            >Player name:
+            <input
+              type="text"
+              name="playername"
+              id="playername"
+              value="<%= locals.player ? player.name : '' %>"
+              required
+          /></label>
+          <label for="position"
+            >Position:
+            <select
+              name="position"
+              id="position"
+              value="<%= locals.player ? player.position : '' %>"
+              required
+            >
+              <option value="Goalkeeper">Goalkeeper</option>
+              <option value="Defender">Defender</option>
+              <option value="Midfielder">Midfielder</option>
+              <option value="Forward">Forward</option>
+            </select>
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

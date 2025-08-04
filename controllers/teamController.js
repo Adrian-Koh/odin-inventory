@@ -14,6 +14,15 @@ async function getPlayersFromTeam(req, res) {
   res.render("team", { team, players });
 }
 
+async function getCreatePlayer(req, res) {
+  const { teamid } = req.params;
+  const action = "new";
+  const postLink = `/team/${teamid}/newPlayer`;
+  const title = "Add player";
+
+  res.render("createPlayerForm", { action, postLink, title });
+}
+
 async function createPlayer(req, res) {
   const { teamid } = req.params;
   const { playername, position } = req.body;
@@ -68,6 +77,7 @@ async function getDeleteTeam(req, res) {
 module.exports = {
   createTeam,
   getPlayersFromTeam,
+  getCreatePlayer,
   createPlayer,
   getEditTeam,
   postEditTeam,

@@ -26,7 +26,7 @@
           <% for (const team of teams) { %>
           <ul>
             <li>
-              <a class="team" href="/team/<%= team.teamid %>"
+              <a class="listitem" href="/team/<%= team.teamid %>"
                 ><%= team.teamname %></a
               >
               <a class="edit" href="/team/edit/<%= team.teamid %>"
@@ -39,7 +39,7 @@
           </ul>
           <% } %> <% } %>
         </div>
-        <a class="add-team" href="/team/new">Add team</a>
+        <a class="add-btn" href="/team/new">Add team</a>
       </div>
     </div>
   </body>
