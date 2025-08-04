@@ -28,8 +28,8 @@ nav a:visited {
   border-radius: 5px;
 }
 
-.team,
-.team:visited {
+a,
+a:visited {
   color: black;
   text-decoration: none;
 }
@@ -136,15 +136,10 @@ footer a:visited {
   margin-right: 5px;
 }
 
-a,
-a:visited {
-  color: black;
-  text-decoration: none;
-}
-
 .add-team {
   padding: 10px;
   background-color: var(--half-transparent);
   border-radius: 5px;
   font-size: 1.5rem;
+  box-shadow: 3px 3px 5px 3px grey;
 }

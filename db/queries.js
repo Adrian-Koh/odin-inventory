@@ -2,7 +2,7 @@ const pool = require("./pool");
 
 async function getAllTeams() {
   const { rows } = await pool.query("SELECT * FROM teams");
-  return rows;
+  return rows.sort((a, b) => a.teamid - b.teamid);
 }
 
 async function getTeamFromID(teamid) {
@@ -14,6 +14,13 @@ async function getTeamFromID(teamid) {
 
 async function insertTeam(teamname) {
   await pool.query("INSERT INTO teams (teamname) VALUES ($1)", [teamname]);
+}
+
+async function editTeam(team) {
+  await pool.query("UPDATE teams SET teamname=$1 WHERE teamid=$2", [
+    team.teamname,
+    team.teamid,
+  ]);
 }
 
 async function getPlayersFromTeamID(teamid) {
@@ -34,6 +41,7 @@ module.exports = {
   getAllTeams,
   getTeamFromID,
   insertTeam,
+  editTeam,
   getPlayersFromTeamID,
   insertPlayer,
 };

@@ -34,10 +34,10 @@ async function getTeamFromID(teamid) {
 }
 
 async function getEditTeam(req, res) {
-  const action = "edit";
-  const postLink = "/team/edit";
-  const title = "Edit team";
   const { teamid } = req.params;
+  const action = "edit";
+  const postLink = "/team/edit/" + teamid;
+  const title = "Edit team";
   const team = await getTeamFromID(teamid);
 
   res.render("createTeamForm", { action, postLink, title, team });
@@ -51,6 +51,14 @@ async function getCreateTeam(req, res) {
   res.render("createTeamForm", { action, postLink, title });
 }
 
+async function postEditTeam(req, res) {
+  const teamname = req.body.teamname;
+  const { teamid } = req.params;
+  const team = { teamid, teamname };
+  await db.editTeam(team);
+  res.redirect("/");
+}
+
 async function getDeleteTeam(req, res) {}
 
 module.exports = {
@@ -58,6 +66,7 @@ module.exports = {
   getPlayersFromTeam,
   createPlayer,
   getEditTeam,
+  postEditTeam,
   getCreateTeam,
   getDeleteTeam,
 };
